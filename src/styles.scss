@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .menu-item {
+    @apply w-full flex items-center space-x-2 p-3 rounded-xl text-gray-500 font-semibold hover:bg-gray-200 cursor-pointer;
+    &.active {
+      @apply bg-primary text-white;
+    }
+  }
+  .btn-primary {
+    @apply bg-primary text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center space-x-2;
+  }
+}

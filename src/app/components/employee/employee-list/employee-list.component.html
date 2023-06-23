@@ -1,0 +1,62 @@
+<div class="w-full h-full flex flex-col space-y-4">
+  <div class="w-full flex items-center justify-between space-x-4">
+    <h2 class="text-2xl font-semibold">Employees</h2>
+    <button class="btn-primary" [routerLink]="['new']">New employee</button>
+  </div>
+  <div class="w-full">
+    <table class="w-full border overflow-x-auto">
+      <thead class="w-full bg-gray-800 text-white">
+        <tr class="w-full divide-x">
+          <th class="p-3 whitespace-nowrap">#</th>
+          <th class="p-3 whitespace-nowrap">FirstName</th>
+          <th class="p-3 whitespace-nowrap">LastName</th>
+          <th class="p-3 whitespace-nowrap">Email</th>
+          <th class="p-3 whitespace-nowrap">Phone Number</th>
+          <th class="p-3 whitespace-nowrap">Hire Date</th>
+          <th class="p-3 whitespace-nowrap">Job</th>
+          <th class="p-3 whitespace-nowrap">Salary</th>
+          <th class="p-3 whitespace-nowrap">Commission PCT</th>
+          <th class="p-3 whitespace-nowrap">Manager</th>
+          <th class="p-3 whitespace-nowrap">Department</th>
+          <th class="p-3 whitespace-nowrap">Modifier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="employees.length <= 0">
+          <td colspan="11" class="text-center">Empty list</td>
+        </tr>
+        <tr class="border-b divide-x" *ngFor="let employee of employees">
+          <td class="p-3 whitespace-normal">{{ employee.employee_id }}</td>
+          <td class="p-3 whitespace-normal">
+            {{ employee.first_name | titlecase }}
+          </td>
+          <td class="p-3 whitespace-normal">
+            {{ employee.last_name | uppercase }}
+          </td>
+          <td class="p-3 whitespace-normal">{{ employee.email }}</td>
+          <td class="p-3 whitespace-normal">{{ employee.phone_number }}</td>
+          <td class="p-3 whitespace-normal">{{ employee.hire_date | date }}</td>
+          <td class="p-3 whitespace-normal">
+            {{ employee.job.job_title | titlecase }}
+          </td>
+          <td class="p-3 whitespace-normal">{{ employee.salary }}</td>
+          <td class="p-3 whitespace-normal">{{ employee.commission_pct }}</td>
+          <td class="p-3 whitespace-normal">
+            {{ employee.manager?.first_name | titlecase }}
+          </td>
+          <td class="p-3 whitespace-normal">
+            {{ employee.department.department_name }}
+          </td>
+          <td class="p-3 whitespace-normal">
+            <button class="text-amber-400">
+              <svg-icon
+                src="assets/icons/edit.svg"
+                svgClass="h-5 w-5"
+              ></svg-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/models/department.type';
 import { DepartmentService } from 'src/app/services/department.service';
@@ -9,11 +10,18 @@ import { DepartmentService } from 'src/app/services/department.service';
   styleUrls: ['./department.component.scss'],
 })
 export class DepartmentComponent implements OnInit {
-  departments$: Observable<Department[]>;
+  deps: Department[]|undefined;
+  
+  constructor(private depService: DepartmentService,
+    private router:Router) {}
 
-  constructor(private _depService: DepartmentService) {}
 
-  ngOnInit(): void {
-    this.departments$ = this._depService.getDepartments();
+    ngOnInit(): void {
+      this.getDepartments();
+  }
+
+
+  getDepartments() {
+    this.depService.getDepartments().subscribe((data) => this.deps=data);  
   }
 }

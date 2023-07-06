@@ -36,7 +36,7 @@ export class EmployeeCreateComponent implements OnInit {
     department: new FormControl(null, [Validators.required]),
   });
 
-  jobs$: Observable<Job[]>;
+  employee: any;
   departments$: Observable<Department[]>;
   managers$: Observable<Employee[]>;
 
@@ -44,27 +44,33 @@ export class EmployeeCreateComponent implements OnInit {
     private _empService: EmployeeService,
     private _jobService: JobService,
     private _depService: DepartmentService,
-    private _router: Router
-  ) {}
+    private _router: Router,
+    private employeeService:EmployeeService
+  ) {this.employeeService.getClientsList().subscribe((data)=>
+    this.employee=data)}
 
   ngOnInit(): void {
-    this.jobs$ = this._jobService.getJobs();
-    this.departments$ = this._depService.getDepartments();
-    this.managers$ = this._empService.getEmployees();
+    // this.jobs$ = this._jobService.getJobs();
+    // this.departments$ = this._depService.getDepartments();
+    // this.managers$ = this._empService.getEmployees();
   }
 
-  onAddEmployee(): void {
-    if (this.employeeForm.invalid) {
-      return;
-    }
-    this._empService
-      .createEmployee(this.employeeForm.value)
-      .subscribe((res) => {
-        this.goBack();
-      });
-  }
+  // onAddEmployee(): void {
+  //   if (this.employeeForm.invalid) {
+  //     return;
+  //   }
+  //   this._empService
+  //     .createEmployee(this.employeeForm.value)
+  //     .subscribe((res) => {
+  //       this.goBack();
+  //     });
+  // }
 
-  goBack(): void {
-    this._router.navigate(['/employees']);
-  }
+  // goBack(): void {
+  //   this._router.navigate(['/employees']);
+  // }
+
+  onAddEmployee(data:any){
+    console.warn(data)
+  this.employeeService.createEmployee(data).subscribe((result)=>{console.warn()}) }
 }

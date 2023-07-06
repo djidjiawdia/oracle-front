@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/country.type';
 import { CountryService } from 'src/app/services/country.service';
@@ -9,11 +10,20 @@ import { CountryService } from 'src/app/services/country.service';
   styleUrls: ['./country.component.scss'],
 })
 export class CountryComponent implements OnInit {
-  countries$: Observable<Country[]>;
+  countries: Country[] | undefined;
 
-  constructor(private _countryService: CountryService) {}
+ 
+  constructor(
+  private _countryService:CountryService,
+  private router: Router) { }
+
 
   ngOnInit(): void {
-    this.countries$ = this._countryService.getCountries();
+    this.getCountries
+  }
+
+
+  getCountries() {
+    this._countryService.getCountriesList().subscribe((data) => this.countries = data);;
   }
 }

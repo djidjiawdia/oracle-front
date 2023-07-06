@@ -9,16 +9,12 @@
         <tr class="w-full divide-x">
           <th class="text-left p-3 whitespace-nowrap">#</th>
           <th class="text-left p-3 whitespace-nowrap">Name</th>
-          <th class="text-left p-3 whitespace-nowrap">Manger</th>
-          <th class="text-left p-3 whitespace-nowrap">Location</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b divide-x">
-          <td class="p-3 whitespace-normal">{{ 1 }}</td>
-          <td class="p-3 whitespace-normal">{{ "Administration" }}</td>
-          <td class="p-3 whitespace-normal">{{ 200 }}</td>
-          <td class="p-3 whitespace-normal">{{ 1700 }}</td>
+        <tr class="border-b divide-x" *ngFor="let dep of deps">
+          <td class="p-3 whitespace-normal">{{ dep.department_id }}</td>
+          <td class="p-3 whitespace-normal">{{ dep.department_name }}</td>
         </tr>
       </tbody>
     </table>

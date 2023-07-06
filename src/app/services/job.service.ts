@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.local';
 export class JobService {
   constructor(private _http: HttpClient) {}
 
-  getJobs(): Observable<Job[]> {
+  getJobsList(): Observable<Job[]> {
     return this._http.get<Job[]>(`${environment.apiUrl}/jobs/listJobs`);
   }
 }

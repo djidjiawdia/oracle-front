@@ -14,11 +14,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b divide-x">
-          <td class="p-3 whitespace-normal">{{ 1 }}</td>
-          <td class="p-3 whitespace-normal">{{ "Stock Manager" }}</td>
-          <td class="p-3 whitespace-normal">{{ 5500 }}</td>
-          <td class="p-3 whitespace-normal">{{ 8500 }}</td>
+        <tr class="border-b divide-x" *ngFor="let job of jobs">
+          <td class="p-3 whitespace-normal">{{ job.job_id}}</td>
+          <td class="p-3 whitespace-normal">{{ job.job_title }}</td>
+          <td class="p-3 whitespace-normal">{{ job.min_salary }}</td>
+          <td class="p-3 whitespace-normal">{{ job.max_salary }}</td>
         </tr>
       </tbody>
     </table>

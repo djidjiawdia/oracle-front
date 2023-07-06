@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.local';
 export class CountryService {
   constructor(private _http: HttpClient) {}
 
-  getCountries(): Observable<Country[]> {
-    return this._http.get<Country[]>(`${environment.apiUrl}/countries`);
+  getCountriesList(): Observable<Country[]> {
+    return this._http.get<Country[]>(`${environment.apiUrl}/countries/listCountries`);
   }
 }

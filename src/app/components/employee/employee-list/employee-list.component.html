@@ -13,18 +13,15 @@
           <th class="p-3 whitespace-nowrap">Email</th>
           <th class="p-3 whitespace-nowrap">Phone Number</th>
           <th class="p-3 whitespace-nowrap">Hire Date</th>
-          <th class="p-3 whitespace-nowrap">Job</th>
           <th class="p-3 whitespace-nowrap">Salary</th>
           <th class="p-3 whitespace-nowrap">Commission PCT</th>
-          <th class="p-3 whitespace-nowrap">Manager</th>
-          <th class="p-3 whitespace-nowrap">Department</th>
           <th class="p-3 whitespace-nowrap">Modifier</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngIf="employees.length <= 0">
+        <!-- <tr *ngIf="employees.length <= 0">
           <td colspan="11" class="text-center">Empty list</td>
-        </tr>
+        </tr> -->
         <tr class="border-b divide-x" *ngFor="let employee of employees">
           <td class="p-3 whitespace-normal">{{ employee.employee_id }}</td>
           <td class="p-3 whitespace-normal">
@@ -36,17 +33,10 @@
           <td class="p-3 whitespace-normal">{{ employee.email }}</td>
           <td class="p-3 whitespace-normal">{{ employee.phone_number }}</td>
           <td class="p-3 whitespace-normal">{{ employee.hire_date | date }}</td>
-          <td class="p-3 whitespace-normal">
-            {{ employee.job.job_title | titlecase }}
-          </td>
+         
           <td class="p-3 whitespace-normal">{{ employee.salary }}</td>
           <td class="p-3 whitespace-normal">{{ employee.commission_pct }}</td>
-          <td class="p-3 whitespace-normal">
-            {{ employee.manager?.first_name | titlecase }}
-          </td>
-          <td class="p-3 whitespace-normal">
-            {{ employee.department.department_name }}
-          </td>
+          
           <td class="p-3 whitespace-normal">
             <button class="text-amber-400">
               <svg-icon

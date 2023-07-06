@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.local';
 export class RegionService {
   constructor(private _http: HttpClient) {}
 
-  getRegions(): Observable<Region[]> {
+  getRegionsList(): Observable<Region[]> {
     return this._http.get<Region[]>(
       `${environment.apiUrl}/regions/listRegions`
     );

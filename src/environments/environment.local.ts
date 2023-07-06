@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'http://localhost:8080/apitomcat/api/iam/master1',
+  apiUrl: 'http://localhost:8080/java-backend/api/iam/master1',
 };

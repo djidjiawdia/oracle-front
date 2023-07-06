@@ -6,13 +6,13 @@
     </button>
   </div>
   <div class="w-full max-w-4xl p-8 rounded-xl shadow-xl mx-auto">
-    <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployee()">
+    <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployee(employeeForm.value)">
       <div class="grid grid-cols-2 gap-4">
         <div class="col-span-1 w-full flex flex-col space-y-1">
           <label for="first_name" class="text-sm font-bold text-gray-700"
             >FirstName</label
           >
-          <input
+          <input ngModel
             type="text"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="first_name"
@@ -22,7 +22,7 @@
           <label for="last_name" class="text-sm font-bold text-gray-700"
             >LastName</label
           >
-          <input
+          <input ngModel
             type="text"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="last_name"
@@ -32,7 +32,7 @@
           <label for="email" class="text-sm font-bold text-gray-700"
             >Email</label
           >
-          <input
+          <input ngModel
             type="email"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="email"
@@ -42,7 +42,7 @@
           <label for="phone_number" class="text-sm font-bold text-gray-700"
             >PhoneNumber</label
           >
-          <input
+          <input ngModel
             type="text"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="phone_number"
@@ -52,7 +52,7 @@
           <label for="hire_date" class="text-sm font-bold text-gray-700"
             >HireDate</label
           >
-          <input
+          <input ngModel
             type="datetime"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="hire_date"
@@ -73,7 +73,7 @@
           <label for="salary" class="text-sm font-bold text-gray-700"
             >Salary</label
           >
-          <input
+          <input ngModel
             type="number"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="salary"
@@ -83,7 +83,7 @@
           <label for="commission_pct" class="text-sm font-bold text-gray-700"
             >Commission PCT</label
           >
-          <input
+          <input ngModel
             type="number"
             class="form-input border-gray-300 rounded-md focus:outline-none focus:border-primary"
             formControlName="commission_pct"
@@ -117,8 +117,7 @@
         </div>
         <div class="col-span-full w-full flex">
           <button
-            [disabled]="employeeForm.invalid"
-            class="btn-primary w-60 disabled:cursor-not-allowed disabled:opacity-75"
+            class="btn-primary w-60"
           >
             Save
           </button>

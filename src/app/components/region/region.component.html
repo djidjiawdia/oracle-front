@@ -5,9 +5,10 @@
   </div>
   <div class="w-full grid grid-cols-4 gap-4">
     <div
+      *ngFor="let r of regions"
       class="col-span-1 w-full shadow rounded-xl p-4 flex items-center space-x-4"
     >
-      <span class="text-lg font-medium">Region 1</span>
+      <span class="text-lg font-medium">{{r.region_name}}</span>
     </div>
   </div>
 </div>
